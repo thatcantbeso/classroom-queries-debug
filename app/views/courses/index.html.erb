@@ -10,7 +10,7 @@
       Title
     </label>
 
-    <input type="text" id="title_b" name="q_title">
+    <input type="text" id="title_box" name="query_title">
   </div>
 
   <div>
@@ -22,11 +22,11 @@
   </div>
 
   <div>
-    <label for="">
+    <label for="department_id_box">
       Department
     </label>
 
-    <select id="" name="query_department_id">
+    <select id="department_id_box" name="query_department_id">
       <% Department.order({ :name => :asc }).each do |a_department| %>
         <option value="<%= a_department.id %>">
           <%= a_department.name %>
@@ -64,27 +64,27 @@
     </th>
   </tr>
 
-  <% @course.each do |a_course| %>
+  <% @course.each do |course| %>
     <tr>
       <td>
-        <%= a_course.id %>
+        <%= course.id %>
       </td>
 
       <td>
-        <%= a_course.title %>
+        <%= course.title %>
       </td>
 
       <td>
-        <%= a_course.term_offered %>
+        <%= course.term_offered %>
       </td>
 
       <td>
-        <% department = department.where({ :id => course.department_id }).at(0) %>
+        <% department = Department.where({ :id => course.department_id }).at(0) %>
         <a href="/departments/<%= department.id %>"><%= department.name %></a>
       </td>
 
       <td>
-        <a href="/courses/<%= @a_course.id %>">
+        <a href="/courses/<%= course.id %>">
           Show details
         </a>
       </td>
