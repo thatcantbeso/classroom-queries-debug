@@ -64,18 +64,18 @@
     </th>
   </tr>
 
-  <% @course.each do |course| %>
+  <% @course.each do |a_course| %>
     <tr>
       <td>
-        <%= course.id %>
+        <%= a_course.id %>
       </td>
 
       <td>
-        <%= course.title %>
+        <%= a_course.title %>
       </td>
 
       <td>
-        <%= course.term_offered %>
+        <%= a_course.term_offered %>
       </td>
 
       <td>
@@ -84,7 +84,7 @@
       </td>
 
       <td>
-        <a href="/courses/<%= @course.id %>">
+        <a href="/courses/<%= @a_course.id %>">
           Show details
         </a>
       </td>
